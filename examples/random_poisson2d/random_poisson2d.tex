@@ -1,0 +1,92 @@
+\documentclass{article} 
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+
+% expectation
+\newcommand{\cE}[1]{\mathbb{E}[#1]}
+% parametric objective function
+\newcommand{\pobj}{J}
+
+\begin{document}
+
+We define the real-valued function $\pobj$ by
+\begin{align*}
+	\pobj(y) = 
+	(1/2)(y-y_d)^T N (y-y_d).
+\end{align*}
+The solution operator $y(u,\xi)$ 
+is defined as the solution to
+the state equation
+\begin{align*}
+	\kappa(\xi) A y(u,\xi) = Gu + g(\xi),
+\end{align*}
+where 
+$\kappa : \Xi \to (0,\infty)$ be a real-valued random variable
+such that $1/\kappa(\xi)$ has finite moments of all orders, 
+and $g(\xi)$ is a random vector with finite moments
+of all orders.
+Moreover, $G$, $N$, and $A$ are deterministic matrices, and
+$N$ and $A$ are symmetric and positive semidefinite.
+
+
+Using the adjoint approach, we find that
+the derivative of $u \mapsto \pobj(y(u,\xi))$
+with respect to $u$ is given by
+$-G^Tz(u,\xi)$, where $z(u,\xi)$ solves
+the adjoint equation
+\begin{align*}
+	\kappa(\xi) A z(u,\xi) = - (Ny(u,\xi)-\widetilde{y}_d).
+\end{align*}
+Here $\widetilde{y}_d = Ny_d$.
+
+
+We formally show that $\cE{z(u,\xi)} = \bar{z}$, 
+where $\bar{z}$ solves
+\begin{align*}
+	A \bar{z} &
+	= - (\widetilde{N}\bar{y} - \cE{1/\kappa(\xi)}\widetilde{y}_d)
+	\quad 
+	\text{where}
+	\quad 
+	\widetilde{N} = \cE{1/\kappa(\xi)^2} N. 
+\end{align*}
+and $\bar{y}$ solves
+\begin{align*}
+	A \bar{y}
+	&= G u + \widetilde{g}
+	\quad \text{where}
+	\quad \widetilde{g}
+	= \cE{1/\kappa(\xi)^2}^{-1} \cE{g(\xi)/\kappa(\xi)^2}.
+\end{align*}
+
+
+Dividing the state and adjoint equation by $\kappa(\xi)$, we find that
+\begin{align*}
+	A z(u,\xi) 
+	& =  (1/\kappa(\xi)) \widetilde{y}_d  - Ny(u,\xi) \\
+	& =  (1/\kappa(\xi)) \widetilde{y}_d 
+	- N A^{-1}\Big[(g(\xi)/\kappa(\xi)^2)+
+	(1/\kappa(\xi)^2)G u\Big]. 
+\end{align*}
+Taking expectations, we obtain 
+\begin{align*}
+	A \cE{z(u,\xi)}
+	& =\cE{1/\kappa(\xi)} \widetilde{y}_d  
+	- N A^{-1}\Big[\cE{g(\xi)/\kappa(\xi)^2}+
+	\cE{1/\kappa(\xi)^2}Gu\Big] \\
+	& =\cE{1/\kappa(\xi)} \widetilde{y}_d  
+	- \underbrace{\cE{1/\kappa(\xi)^2} N}_{=\widetilde{N}} 
+	A^{-1} \Big[
+	\underbrace{\cE{1/\kappa(\xi)^2}^{-1}
+		\cE{g(\xi)/\kappa(\xi)^2}}_{=\widetilde{g}}+
+	Gu\Big] \\
+	& = - (\widetilde{N}\bar{y} - \cE{1/\kappa(\xi)}\widetilde{y}_d)
+	\\
+	& = A \bar{z}.
+\end{align*}
+
+\end{document}
+
+
