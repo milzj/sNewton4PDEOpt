@@ -9,5 +9,4 @@ dependencies:
   - scipy=1.7.0
   - numpy=1.21.1
   - matplotlib=3.4.2
-  - pip:
-      - git+https://github.com/dolfin-adjoint/pyadjoint.git@2019.1.0
+  - dolfin-adjoint=2019.1.0
