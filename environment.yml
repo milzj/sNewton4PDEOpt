@@ -6,8 +6,8 @@ dependencies:
   - python=3.8.11
   - pip=20.2.4
   - fenics=2019.1.0
-  - scipy=3.8.11
-  - numpy=3.8.11
+  - scipy=1.7.0
+  - numpy=1.21.1
   - matplotlib=3.8.11
   - pip:
       - git+https://github.com/dolfin-adjoint/pyadjoint.git@2019.1.0
