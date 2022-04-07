@@ -67,7 +67,8 @@ Some tests use the following packages:
 The code was tested using 
 python version 3.8.11, scipy version 1.7.0, 
 numpy version 1.21.1, fenics version 2019.1.0, 
-moola version 0.1.6, and matplotlib version 3.4.2.
+moola version 0.1.6, and matplotlib version 3.4.2
+(see also environment.yml).
 
 ## References
 
