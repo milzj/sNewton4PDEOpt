@@ -9,7 +9,7 @@ class MonotonicityTest(Globalization):
 	The restricted residual monotonicity test computes the largest
 	step size `sigma` in {1, 1/2, 1/4, ..., sigma_min} such that
 
-		residual_map(sigma) <= (1 + sigma/100 + 2e-4)*residual_map_old.
+		residual_map(sigma) <= (1 - sigma/100 + 2e-4)*residual_map_old.
 
 	If such a parameter `sigma` does not exist, then `sigma = sigma_min/2`
 	is chosen and a warning is printed.

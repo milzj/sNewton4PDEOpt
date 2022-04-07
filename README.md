@@ -12,8 +12,8 @@ solves the linear elliptic PDE:
 
 <img src="https://render.githubusercontent.com/render/math?math=%5Cbegin%7Balign*%7D%0A%09%5Ctext%7Bfind%7D%20%5Cquad%20y%20%5Cin%20H_0%5E1(D)%20%5Cquad%20%0A%09%5Ctext%7Bwith%7D%20%5Cquad%20%0A%09(%5Ckappa%20%5Cnabla%20y%2C%5Cnabla%20v)_%7BL%5E2(D)%5Ed%7D%0A%09%3D%20(u%2Bg%2Cv)_%7BL%5E2(D)%7D%0A%09%5Cquad%20%5Ctext%7Bfor%20all%7D%20%5Cquad%20v%20%5Cin%20H_0%5E1(D).%0A%5Cend%7Balign*%7D">
 
-The feasible set is 
-<img src="https://render.githubusercontent.com/render/math?math=U_%7B%5Ctext%7Bad%7D%7D%20%3D%20%5C%7Bu%20%5Cin%20L%5E2(D)%3A%20%5Clb%20%5Cleq%20u%20%5Cleq%20%5Cub%20%5C%7D%24">
+The feasible set is given by
+<img src="https://render.githubusercontent.com/render/math?math=U_%7B%5Ctext%7Bad%7D%7D%20%3D%20%5C%7Bu%20%5Cin%20L%5E2(D)%3A%20%5Clb%20%5Cleq%20u%20%5Cleq%20%5Cub%20%5C%7D%24">.
 
 The control space is discretized using piecewise constant functions and the
 state space is discretized using piecewise continuous functions. [FEniCS](https://fenicsproject.org/)
@@ -67,7 +67,8 @@ Some tests use the following packages:
 The code was tested using 
 python version 3.8.11, scipy version 1.7.0, 
 numpy version 1.21.1, fenics version 2019.1.0, 
-moola version 0.1.6, and matplotlib version 3.4.2.
+moola version 0.1.6, and matplotlib version 3.4.2
+(see also environment.yml).
 
 ## References
 
