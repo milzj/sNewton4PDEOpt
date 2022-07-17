@@ -1,0 +1,78 @@
+\documentclass{scrartcl}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{ifthen}
+\usepackage{amsmath,amssymb}
+
+
+\newcommand{\prox}[3][]{\mathrm{prox}_{#2}(#3)}
+\newcommand{\norm}[2][2]{\|#2\|_{#1}}
+\newcommand{\adcsp}{U_{\text{ad}}}
+\newcommand{\domain}{D}
+\newcommand{\real}{\mathbb{R}}
+
+\title{Postprocessing}
+\date{July 17, 2022}
+
+\begin{document}
+
+\maketitle
+
+We consider 
+
+$$
+	\min_{u \in \adcsp}\, 
+	G(u) := F(u) + \beta \norm[L^1(\domain)]{u},
+$$
+where $F : L^2(\domain) \to \real$ is strictly convex and continuously
+differentiable, and $\beta \geq 0$. 
+We choose $\adcsp = \{\, u \in L^2(\domain) :\, a \leq u \leq b\,\}$
+with $-\infty < a  < 0 < b < \infty$.
+
+An approximate solution to the above problem can be obtained via the solution
+$u_\alpha^*$
+to the regularized problem
+
+$$
+\min_{u \in \adcsp}\, 
+G(u) + (\alpha/2)\norm[L^2(\domain)]{u}^2,
+$$
+where $\alpha > 0$.
+
+If $\nabla F(u_\alpha^*) \in H_0^1(\domain)$, then
+$u_\alpha^* \in H^1(\domain)$. 
+However, the solution $u^*$  to the nonregularized problem fulfills
+$u^*(x) = \{a, 0, b\}$ for almost every $x \in \domain$, provided
+that the measure of $\{x \in \domain : |\nabla F(u^*)(x)| = \beta\}$ is zero.
+
+Given the solution $u_\alpha^*$
+to the regularized problem, we may use the following control
+as an approximate solution to  nonregularized problem:
+
+$$
+	\widetilde{u}(x) = 
+	\begin{cases}
+	a & \text{if} \quad \nabla F(u_\alpha^*)(x) > \beta \\
+	b & \text{if} \quad \nabla F(u_\alpha^*)(x) < -\beta \\
+	0 & \text{else}
+	\end{cases}
+$$
+
+Using Lemma~5.6 in 
+\href{https://arxiv.org/abs/2109.15217}{K.\ Kunisch and D.\ Walter (2021)}, we find that
+$\widetilde{u}$ solves
+
+$$
+	\min_{v \in \adcsp}\, 
+	(\nabla F(u_\alpha^*),v)_{L^2(\domain)}
+	+\beta \norm[L^1(\domain)]{v}.
+$$
+
+A natural question is whether
+
+$$
+	G(\widetilde{u}) \leq G(u_\alpha^*)
+$$
+holds true. We verify this inequality empirically one an example.
+
+\end{document}
