@@ -4,7 +4,7 @@ min (1/2) E[norm(y(u,xi)-yd)**2] + (alpha/2) norm(u)**2 + beta norm(u,L1),
 
 where y(u,xi) solves the weak form of Poisson equation with random inputs
 
-	- kappa(xi) Laplacian(y) = u + g.
+    - kappa(xi) Laplacian(y) = u + g.
 
 Here g and kappa are a real-valued random variables. Since kappa is 
 real-valued, the expectation function's gradient
@@ -36,10 +36,10 @@ ub = Constant(10.0)
 gtol = 1e-12
 
 quadratic = RandomQuadraticProblem(n, n,
-				yd=yd, g=g,
-				alpha=alpha,
-				beta=beta,
-				lb=lb, ub=ub)
+                yd=yd, g=g,
+                alpha=alpha,
+                beta=beta,
+                lb=lb, ub=ub)
 
 sampler = Sampler()
 
@@ -48,10 +48,10 @@ u_vec = 0.0*quadratic.u_vec
 grad_vecs = []
 
 for i in range(0, 10):
-	sample = sampler.sample(1)
-	quadratic.sample = sample
-	g_vec = quadratic.gradient_vec(u_vec)
-	grad_vecs.append(g_vec)
+    sample = sampler.sample(1)
+    quadratic.sample = sample
+    g_vec = quadratic.gradient_vec(u_vec)
+    grad_vecs.append(g_vec)
 
 grad_vec = np.mean(grad_vecs, axis=0)
 beta = .1*np.linalg.norm(grad_vec, ord=np.inf)
