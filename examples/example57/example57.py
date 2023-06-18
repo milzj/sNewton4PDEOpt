@@ -61,7 +61,7 @@ plt.savefig("state.png")
 plt.close()
 
 C = sp.bmat([	[quadratic.A_mat, None],\
-		[quadratic.N_mat, quadratic.A_mat]],format='csr')
+        [quadratic.N_mat, quadratic.A_mat]],format='csr')
 
 d = np.hstack([quadratic.G_mat @ quadratic.u_vec + quadratic.g_vec, quadratic.yd_vec])
 yz = spsolve(C, d)
